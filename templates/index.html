@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>ACEest Fitness Tracker</title>
+</head>
+<body>
+    <div class="container">
+        <h1>ACEest Fitness Tracker</h1>
+        <form action="/add" method="POST">
+            <label for="workout">Workout:</label>
+            <input type="text" id="workout" name="workout" required>
+            <label for="duration">Duration (minutes):</label>
+            <input type="number" id="duration" name="duration" required>
+            <button type="submit">Add Workout</button>
+        </form>
+
+        <h2>Logged Workouts</h2>
+        <ul>
+            {% for workout in workouts %}
+                <li>{{ workout.workout }} - {{ workout.duration }} minutes</li>
+            {% else %}
+                <li>No workouts logged yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

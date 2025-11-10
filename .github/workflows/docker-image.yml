@@ -37,7 +37,7 @@ jobs:
           password: ${{ secrets.password }}
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.username }}/gym:v1.1
+        run: docker build -t aravind2230/gym:v1.1
 
       - name: Push Docker image
-        run: docker push ${{ secrets.username }}/gym:v1.1
+        run: docker push aravind2230/gym:v1.1

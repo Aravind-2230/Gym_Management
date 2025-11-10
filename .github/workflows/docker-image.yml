@@ -33,11 +33,11 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.username }}
-          password: ${{ secrets.password }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t aravind2230/gym:v1.1
+        run: docker build -t ${{ secrets.USERNAME }}/gym:v1.1
 
       - name: Push Docker image
-        run: docker push aravind2230/gym:v1.1
+        run: docker push ${{ secrets.USERNAME }}/gym:v1.1
